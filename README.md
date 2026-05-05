@@ -14,41 +14,22 @@ The pipeline consists of two main stages: **segmentation** (isolating stain regi
 ```
 microbial-stain-classification/
 ├── README.md
-├── classical_svm/                      # Classical ML: segmentation + SVM classification
-│   ├── extract_features.py             # Feature extraction from segmented regions (49 features)
-│   ├── feature_importance.py           # Feature importance analysis
-│   ├── classify.py                     # Binary and multiclass SVM classification
-│   ├── multiclass.py                   # Multiclass SVM experiments
-│   ├── experiment_saturation.py        # Saturation-based segmentation experiments
-│   ├── experiment_preprocessing.py     # Preprocessing pipeline experiments
-│   ├── prepare_multiclass_cross_device.py  # Cross-device dataset preparation
-│   ├── prepare_multiclass_mixed_device.py  # Mixed-device dataset preparation
-│   ├── test_svm_multiclass.py          # Multiclass SVM evaluation
-│   ├── test_binary_full_vector.py      # Binary classification with full feature vector
-│   ├── test.py                         # General testing script
-│   ├── image_gen.py                    # Image generation utilities
-│   └── results/
-│       ├── results_segmentation.csv    # Segmentation evaluation results
-│       ├── confusion_matrix_D3.png     # Confusion matrix – D3 dataset
-│       └── confusion_matrix_mixed.png  # Confusion matrix – mixed dataset
+├── classical_svm/                       # Classical ML: LAB segmentation + SVM
+│   ├── segmentation.py                  # Segmentation methods: Otsu, LAB, Gabor + batch evaluation
+│   ├── utils.py                         # Shared utilities: 49-feature extraction, label parsing
+│   ├── train_binary_svm.py              # Binary SVM classifier (bacteria vs. mould)
+│   └── train_multiclass_split.py        # Multiclass SVM with GridSearchCV (12 species)
 │
-├── classical_svm_no_segmentation/      # Classical ML: classification without segmentation
-│   ├── csv_utils.py                    # CSV loading and utilities
-│   ├── features.py                     # Feature definitions
-│   ├── test_49.py                      # Evaluation with 49-feature vector
-│   ├── test_d2.py                      # Evaluation on D2 dataset
-│   ├── test_priznaky.py                # Feature-level analysis
-│   └── train_eval.py                   # Training and evaluation pipeline
+├── classical_svm_no_segmentation/       # Classical ML: classification without segmentation
+│   ├── features.py                      # Feature vectors (16 and 49) + classifier definitions
+│   ├── compare_split.py                 # 16 vs 49 features comparison – train/test split
+│   └── compare_cv.py                    # 16 vs 49 features comparison – cross-validation
 │
-├── cnn_binary/                         # Deep learning: binary classification (mould vs. bacteria)
-│   ├── image.py                        # Image loading and augmentation utilities
-│   ├── prepare_binary_split.py         # Train/test split preparation
-│   ├── prepare_binary_cross_device.py  # Cross-device split preparation
-│   ├── prepare_binary_mixed_device.py  # Mixed-device split preparation
-│   └── train_resnet_binary.py          # ResNet18 binary classifier training
+├── cnn_binary/                          # Deep learning: binary classification (bacteria vs. mould)
+│   └── train_resnet_binary.py           # ResNet18 with transfer learning
 │
-└── cnn_multiclass/                     # Deep learning: multiclass classification (12 species)
-    └── main.py                         # ResNet18 / EfficientNet-B0 / DenseNet121 training & evaluation
+└── cnn_multiclass/                      # Deep learning: multiclass classification (12 species)
+    └── main.py                          # ResNet18 / EfficientNet-B0 / DenseNet121 training & evaluation
 ```
 
 ### Methods Overview
@@ -60,13 +41,24 @@ microbial-stain-classification/
 | `cnn_binary` | ResNet18, transfer learning | 100 % (D2), 97.52 % (cross-device) |
 | `cnn_multiclass` | DenseNet121 / EfficientNet-B0 | 96 % / 95.98 % (mixed dataset) |
 
+### Pre-trained Models
+
+The best-performing CNN models are available as a [GitHub Release](../../releases):
+
+| Model | Task | Dataset | Accuracy | F1-macro |
+|---|---|---|---|---|
+| ResNet18 | binary | D2 | 100 % | 1.000 |
+| ResNet18 | binary | mixed D2+D3 | 97.52 % | — |
+| DenseNet121 | multiclass | mixed D2+D3 | 96 % | 0.94 |
+| EfficientNet-B0 | multiclass | mixed D2+D3 | 95.98 % | 0.93 |
+
 ### Requirements
 
 - Python 3.10+
 - PyTorch, torchvision
-- scikit-learn
+- scikit-learn, scikit-image
 - OpenCV
-- NumPy, pandas, matplotlib
+- NumPy, matplotlib
 
 ---
 
@@ -85,20 +77,24 @@ Pipeline pozostáva z dvoch hlavných fáz: **segmentácia** (vyčlenenie oblast
 | `cnn_binary` | ResNet18, prenosové učenie | 100 % (D2), 97,52 % (cross-device) |
 | `cnn_multiclass` | DenseNet121 / EfficientNet-B0 | 96 % / 95,98 % (kombinovaný dataset) |
 
+### Natrénované modely
+
+Najlepšie CNN modely sú dostupné ako [GitHub Release](../../releases).
+
 ### Datasety
 
 Experimenty pracujú s tromi konfiguráciami datasetu:
-- **D2** – snímky z jedného zobrazovacie zariadenia
+- **D2** – snímky z jedného zobrazovacieho zariadenia
 - **D3** – snímky z druhého zobrazovacieho zariadenia
 - **mixed (D2+D3)** – kombinovaný dataset z oboch zariadení
 
-### Závislostiami
+### Závislosti
 
 - Python 3.10+
 - PyTorch, torchvision
-- scikit-learn
+- scikit-learn, scikit-image
 - OpenCV
-- NumPy, pandas, matplotlib
+- NumPy, matplotlib
 
 ---
 
