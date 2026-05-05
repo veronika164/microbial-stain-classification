@@ -36,7 +36,7 @@ microbial-stain-classification/
 | Module | Approach | Best Result |
 |---|---|---|
 | `classical_svm` | LAB segmentation + SVM (49 features) | 87.94 % accuracy (mixed dataset) |
-| `classical_svm_no_segmentation` | SVM without segmentation | — |
+| `classical_svm_no_segmentation` | SVM without segmentation | 88.22 % accuracy (cross-device) |
 | `cnn_binary` | ResNet18, transfer learning | 100 % (D2), 97.52 % (cross-device) |
 | `cnn_multiclass` | DenseNet121 / EfficientNet-B0 | 96 % / 95.98 % (mixed dataset) |
 
@@ -72,7 +72,7 @@ Pipeline pozostáva z dvoch hlavných fáz: **segmentácia** (vyčlenenie oblast
 | Modul | Prístup | Najlepší výsledok |
 |---|---|---|
 | `classical_svm` | Segmentácia v priestore LAB + SVM (49 príznakov) | 87,94 % (kombinovaný dataset) |
-| `classical_svm_no_segmentation` | SVM bez segmentácie | — |
+| `classical_svm_no_segmentation` | SVM bez segmentácie | 88.22 % (cross-device) |
 | `cnn_binary` | ResNet18, prenosové učenie | 100 % (D2), 97,52 % (cross-device) |
 | `cnn_multiclass` | DenseNet121 / EfficientNet-B0 | 96 % / 95,98 % (kombinovaný dataset) |
 
