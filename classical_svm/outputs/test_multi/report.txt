@@ -1,0 +1,44 @@
+Train samples    : 384
+Test samples     : 100
+Features         : 50
+Best CV f1_macro : 0.8384
+Best params      : {'clf__C': 10, 'clf__gamma': 'scale'}
+Accuracy         : 0.8100
+Precision macro  : 0.8524
+Recall macro     : 0.7743
+F1 macro         : 0.7679
+F1 weighted      : 0.7965
+
+Confusion matrix:
+[[11  0  0  0  0  0  0  0  1  0  0  0]
+ [ 0  8  0  0  0  0  0  0  0  0  0  0]
+ [ 0  0 12  0  0  0  0  0  0  0  0  0]
+ [ 0  1  0  3  0  0  0  0  0  0  0  0]
+ [ 0  0  0  0  4  0  0  0  0  0  0  0]
+ [ 0  0  0  0  0  6  1  0  1  0  0  0]
+ [ 0  0  0  0  0  0 16  0  0  0  0  0]
+ [ 0  0  0  0  4  0  0  4  0  0  0  0]
+ [ 0  0  0  0  0  1  1  0  6  0  0  0]
+ [ 0  0  2  0  0  0  0  0  0  2  0  0]
+ [ 0  0  0  0  1  0  0  0  0  0  7  0]
+ [ 4  0  0  0  0  1  0  0  1  0  0  2]]
+
+Classification report:
+                                    precision    recall  f1-score   support
+
+              alternaria_alternata       0.73      0.92      0.81        12
+                   arthrobacter_sp       0.89      1.00      0.94         8
+             aspergillus_ochraceus       0.86      1.00      0.92        12
+cladosporium_pseudocladosporioides       1.00      0.75      0.86         4
+     curtobacterium_flaccumfaciens       0.44      1.00      0.62         4
+                epicoccum_layunese       0.75      0.75      0.75         8
+           exiguobacterium_indicum       0.89      1.00      0.94        16
+                    micrococcus_sp       1.00      0.50      0.67         8
+               penicillium_mangini       0.67      0.75      0.71         8
+             rhodococcus_degradans       1.00      0.50      0.67         4
+            sphingomonas_aquatilis       1.00      0.88      0.93         8
+         talaromyces_purpureogenus       1.00      0.25      0.40         8
+
+                          accuracy                           0.81       100
+                         macro avg       0.85      0.77      0.77       100
+                      weighted avg       0.86      0.81      0.80       100

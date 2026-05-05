@@ -1,0 +1,2 @@
+Best CV f1_macro : 0.838407
+Best params      : {'clf__C': 10, 'clf__gamma': 'scale'}

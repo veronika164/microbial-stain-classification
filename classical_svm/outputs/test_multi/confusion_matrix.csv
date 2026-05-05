@@ -1,0 +1,13 @@
+,alternaria_alternata,arthrobacter_sp,aspergillus_ochraceus,cladosporium_pseudocladosporioides,curtobacterium_flaccumfaciens,epicoccum_layunese,exiguobacterium_indicum,micrococcus_sp,penicillium_mangini,rhodococcus_degradans,sphingomonas_aquatilis,talaromyces_purpureogenus
+alternaria_alternata,11,0,0,0,0,0,0,0,1,0,0,0
+arthrobacter_sp,0,8,0,0,0,0,0,0,0,0,0,0
+aspergillus_ochraceus,0,0,12,0,0,0,0,0,0,0,0,0
+cladosporium_pseudocladosporioides,0,1,0,3,0,0,0,0,0,0,0,0
+curtobacterium_flaccumfaciens,0,0,0,0,4,0,0,0,0,0,0,0
+epicoccum_layunese,0,0,0,0,0,6,1,0,1,0,0,0
+exiguobacterium_indicum,0,0,0,0,0,0,16,0,0,0,0,0
+micrococcus_sp,0,0,0,0,4,0,0,4,0,0,0,0
+penicillium_mangini,0,0,0,0,0,1,1,0,6,0,0,0
+rhodococcus_degradans,0,0,2,0,0,0,0,0,0,2,0,0
+sphingomonas_aquatilis,0,0,0,0,1,0,0,0,0,0,7,0
+talaromyces_purpureogenus,4,0,0,0,0,1,0,0,1,0,0,2
