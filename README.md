@@ -23,7 +23,6 @@ microbial-stain-classification/
 ├── classical_svm_no_segmentation/       # Classical ML: classification without segmentation
 │   ├── features.py                      # Feature vectors (16 and 49) + classifier definitions
 │   ├── compare_split.py                 # 16 vs 49 features comparison – train/test split
-│   └── compare_cv.py                    # 16 vs 49 features comparison – cross-validation
 │
 ├── cnn_binary/                          # Deep learning: binary classification (bacteria vs. mould)
 │   └── train_resnet_binary.py           # ResNet18 with transfer learning
