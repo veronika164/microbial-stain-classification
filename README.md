@@ -47,7 +47,7 @@ The best-performing CNN models are available as a [GitHub Release](../../release
 | Model | Task | Dataset | Accuracy | F1-macro |
 |---|---|---|---|---|
 | ResNet18 | binary | D2 | 1.000 | 1.000 |
-| ResNet18 | binary | D2 train, D3 test | 97.52 % | 0.97 |
+| ResNet18 | binary | D2 train, D3 test | 0.97 % | 0.97 |
 | DenseNet121 | multiclass | mixed D2+D3 | 0.96 | 0.94 |
 | EfficientNet-B0 | multiclass | mixed D2+D3 | 0.95 | 0.93 |
 
