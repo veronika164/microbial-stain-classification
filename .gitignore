@@ -1,0 +1,24 @@
+# Datasets
+data/
+D2_split/
+D2train_D3test/
+D3train_D2test/
+D2D3_split/
+D2_multiclass/
+D2_to_D3_multiclass/
+D2_D3_mixed_multiclass/
+
+# Outputs
+outputs/
+results/
+reporty/
+
+# Python
+__pycache__/
+*.pyc
+.idea/
+
+# Models
+*.pth
+*.pt
+*.pkl
